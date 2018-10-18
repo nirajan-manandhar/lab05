@@ -7,8 +7,13 @@
 
 class operation{
 public:
+    //Returns a char
     virtual char get_code()=0;
+
+    //Returns an int
     virtual int perform(int a, int b)=0;
+
+    //Destructor
     virtual ~operation(){};
 };
 
