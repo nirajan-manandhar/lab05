@@ -12,7 +12,7 @@ class division_operation : public abstract_operation {
 public:
     static char const DIVISION_CODE = '/';
     division_operation(): abstract_operation(DIVISION_CODE){};
-    int perform(int a, int b) { return a / b;}
+    int perform(int a, int b) override { return a / b;}
     ~division_operation() = default;
 };
 

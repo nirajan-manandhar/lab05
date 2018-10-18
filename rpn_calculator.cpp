@@ -8,20 +8,21 @@
 operation* rpn_calculator::operation_type(char operation) {
     switch (operation) {
         case addition_operation::ADDITION_CODE : {
-            return new addition_operation;
+            return new addition_operation();
         }
 
         case subtraction_operation::SUBTRACTION_CODE : {
-            return new subtraction_operation;
+            return new subtraction_operation();
         }
 
         case multiplication_operation::MULTIPLICATION_CODE : {
-            return new multiplication_operation;
+            return new multiplication_operation();
         }
 
         case division_operation::DIVISION_CODE : {
-            return new division_operation;
+            return new division_operation();
         }
+        default:break;
     }
 }
 
@@ -30,7 +31,7 @@ void rpn_calculator::perform(operation* operation) {
     my_stack.pop();
     int second = my_stack.top();
     my_stack.pop();
-    int result = operation->perform(first, second);
+    int result = operation->perform(second, first);
     my_stack.push(result);
 }
 
@@ -42,7 +43,10 @@ int rpn_calculator::process_formula(string formula) {
         int curr_int;
         if(iss2 >> curr_int) {
             my_stack.push(curr_int);
+        } else {
+            perform(operation_type(operand[0]));
         }
-        perform(operation_type(operand[0]));
+
     }
+    return my_stack.top();
 }

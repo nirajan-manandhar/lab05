@@ -12,7 +12,7 @@ class subtraction_operation  : public abstract_operation{
 public:
     static char const SUBTRACTION_CODE = '-';
     subtraction_operation() : abstract_operation(SUBTRACTION_CODE) {};
-    int perform(int a, int b) { return a - b;}
+    int perform(int a, int b) override { return a - b;}
     ~subtraction_operation()= default;
 };
 

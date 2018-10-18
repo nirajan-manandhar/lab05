@@ -12,7 +12,7 @@ class addition_operation : public abstract_operation {
 public:
     static char const ADDITION_CODE = '+';
     addition_operation() : abstract_operation(ADDITION_CODE) {};
-    int perform(int a, int b) { return a + b;}
+    int perform(int a, int b) override { return a + b;}
     ~addition_operation() = default;
 };
 
